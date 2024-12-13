@@ -4,6 +4,18 @@
     product_id: "Google Chrome"
     state: present
 
+- name: Install Mozilla Firefox
+  win_package:
+    path: "C:\\Installers\\firefox_installer.exe"
+    product_id: "Mozilla Firefox"
+    state: present
+
+- name: Install Office 365
+  win_package:
+    path: "C:\\Installers\\office365_installer.exe"
+    product_id: "Microsoft Office 365"
+    state: present
+
 - name: Install VLC Media Player
   win_package:
     path: "C:\\Installers\\vlc_installer.exe"

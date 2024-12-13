@@ -1,0 +1,14 @@
+- name: Install FreeRADIUS
+  ansible.builtin.yum:
+    name: freeradius
+    state: present
+
+- name: Configure RADIUS Clients
+  ansible.builtin.template:
+    src: clients.conf.j2
+    dest: /etc/raddb/clients.conf
+
+- name: Restart FreeRADIUS
+  ansible.builtin.systemd:
+    name: radiusd
+    state: restarted

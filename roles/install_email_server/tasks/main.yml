@@ -1,0 +1,14 @@
+- name: Install Postfix
+  ansible.builtin.yum:
+    name: postfix
+    state: present
+
+- name: Configure Postfix
+  ansible.builtin.template:
+    src: postfix_main.cf.j2
+    dest: /etc/postfix/main.cf
+
+- name: Restart Postfix
+  ansible.builtin.systemd:
+    name: postfix
+    state: restarted

@@ -1,0 +1,17 @@
+- name: Collect CPU Usage
+  win_shell: Get-Counter -Counter "\Processor(_Total)\% Processor Time"
+  register: cpu_usage
+- debug:
+    msg: "{{ cpu_usage.stdout_lines }}"
+
+- name: Collect Memory Usage
+  win_shell: Get-WmiObject -Class Win32_OperatingSystem | Select-Object FreePhysicalMemory, TotalVisibleMemorySize
+  register: memory_usage
+- debug:
+    msg: "{{ memory_usage.stdout_lines }}"
+
+- name: Collect Disk Usage
+  win_shell: Get-PSDrive -PSProvider FileSystem
+  register: disk_usage
+- debug:
+    msg: "{{ disk_usage.stdout_lines }}"
