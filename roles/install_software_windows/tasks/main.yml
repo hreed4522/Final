@@ -1,0 +1,11 @@
+- name: Install Google Chrome
+  win_package:
+    path: "C:\\Installers\\chrome_installer.exe"
+    product_id: "Google Chrome"
+    state: present
+
+- name: Install VLC Media Player
+  win_package:
+    path: "C:\\Installers\\vlc_installer.exe"
+    product_id: "VideoLAN VLC"
+    state: present

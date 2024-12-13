@@ -1,0 +1,11 @@
+- name: Open RDP Port
+  win_firewall_rule:
+    name: "Allow RDP"
+    direction: in
+    action: allow
+    protocol: TCP
+    localport: 3389
+
+- name: Enable Real-Time Protection in Windows Defender
+  win_defender:
+    real_time_protection: true

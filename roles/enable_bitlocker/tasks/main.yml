@@ -1,0 +1,5 @@
+- name: Enable BitLocker on Drive C:
+  win_bitlocker:
+    drive_letter: C
+    state: enabled
+    recovery_key_path: "C:\\RecoveryKeys"
